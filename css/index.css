@@ -1,0 +1,136 @@
+body #creatorElement {
+  /* SurveyJS Creator V1 */
+  --primary-color: #7ff07f;
+  --secondary-color: #1ab394;
+  --primary-text-color: #4a4a4a;
+  --secondary-text-color: #a7a7a7;
+  --inverted-text-color: #ffffff;
+  --primary-hover-color: #6fe06f;
+  --selection-border-color: #1ab394;
+  --primary-icon-color: #3d4d5d;
+  --primary-bg-color: #f8f8f8;
+  --secondary-bg-color: #f4f4f4;
+  --primary-border-color: #e7eaec;
+  --secondary-border-color: #ddd;
+  --error-color: #ed5565;
+}
+body {
+  /* SurveyJS Creator V2 */
+  --primary: #1ab7fa;
+  --primary-light: rgba(26, 183, 250, 0.1);
+  --foreground: rgb(5, 5, 5);
+  --primary-foreground: #ffffff;
+  --secondary: #1ab7fa;
+  --background: white;
+  --background-dim: white;
+  /* --background-dim-light: #4d4d4d; */
+}
+
+.sd-multipletext__item-title {
+  min-width: 30%;
+}
+
+.sd-page .sd-page__title {
+  margin: 0 auto;
+  font-family: "Nunito", "Open Sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.sd-question__header--location-top {
+  padding-bottom: 0;
+}
+
+.sd-element__title {
+  outline: none;
+  font-family: "Nunito", "Open Sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+  line-height: 1.2 !important;
+  /* font-size: 2.3125rem !important; */
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  margin-bottom: 6px !important;
+}
+
+.sd-input {
+  font-family: "Nunito", "Open Sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 600;
+  line-height: 1.2;
+  box-shadow: 0 0 0 2px #e6ebf0;
+}
+
+.sd-input:focus {
+  box-shadow: var(
+      --sjs-shadow-inner-reset,
+      inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)
+    ),
+    0 0 0 2px #005387;
+}
+
+.sd-element--with-frame {
+  box-shadow: 0 0 0 2px #f3f6f9;
+}
+
+.sd-input--error {
+  box-shadow: 0 0 0 2px #c93b3bb3 !important;
+}
+
+.sd-error {
+  font-size: medium;
+  background: white;
+}
+
+.sd-element--with-frame.sd-question--title-top
+  > .sd-question__erbox--above-question {
+  margin-bottom: 0;
+  margin-top: 8px;
+  margin-left: -11px;
+  background: none;
+  float: left;
+}
+
+.invalid-feedback {
+  display: block !important;
+}
+
+.sd-element--with-frame > .sd-element__erbox {
+  margin: -17px 0 8px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 6px;
+  width: calc(100% + 0 * var(--sd-base-padding));
+  padding: 0;
+  font-size: 0.8em !important;
+  font-weight: 600;
+}
+
+.sd-element--complex.sd-element--with-frame > .sd-element__erbox {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  line-height: 1.2 !important;
+  font-size: 0.8em !important;
+  font-weight: 600 !important;
+
+  color: #c93b3b;
+  display: inline-flex !important;
+}
+
+.sd-root-modern {
+  padding-bottom: 10px !important;
+  --sd-base-padding: calc(3 * var(--sjs-base-unit, var(--base-unit, 8px)));
+  --sd-base-vertical-padding: calc(
+    2 * var(--sjs-base-unit, var(--base-unit, 8px))
+  );
+  --sd-page-vertical-padding: calc(
+    3 * var(--sjs-base-unit, var(--base-unit, 8px))
+  );
+}
