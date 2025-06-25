@@ -152,7 +152,7 @@ const formattedDate = currentDate
 
 survey.onComplete.add((sender, options) => {
   // Usar comillas invertidas y la sintaxis de interpolación para formar el nombre del archivo
-  const fileName = `Declaracion-Jurada_${formattedDate}.pdf`;
+  const fileName = `ReporteInspeccion_${formattedDate}.pdf`;
   saveSurveyToPdf(fileName, survey);
 });
 
