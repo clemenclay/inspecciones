@@ -6,7 +6,7 @@ const json = {
   pages: [
     {
       name: "page1",
-      title: { es: "Formulario de Inspección" },
+      title: { es: "Formulario de Subsanacion de Inspección" },
       elements: [
         {
           type: "text",
@@ -17,12 +17,14 @@ const json = {
         {
           type: "text",
           name: "referenciaExterna",
-          title: "Referencia Externa"
+          title: "Referencia Externa",
+          isRequired: true
         },
         {
           "type": "text",
-          "name": "fecha",
-          "inputType": "datetime-local"
+          "name": "Fecha de Inspección",
+          "inputType": "datetime-local",
+          isRequired: true
         },
         {
           type: "text",
