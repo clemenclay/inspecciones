@@ -22,9 +22,10 @@ const json = {
         },
         {
           "type": "text",
-          "name": "Fecha de Inspección",
+          "name": "fecha",
+          "title": "Fecha de Inspección",
           "inputType": "datetime-local",
-          isRequired: true
+          "isRequired": true
         },
         {
           type: "text",

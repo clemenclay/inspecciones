@@ -1,3 +1,4 @@
+
 function createSurveyPdfModel(surveyModel) {
   const pdfWidth =
     !!surveyModel && surveyModel.pdfWidth ? surveyModel.pdfWidth : 210;
@@ -36,8 +37,6 @@ $(document).ready(function () {
 
 survey.questionErrorLocation = "bottom";
 
-// survey.applyTheme(SurveyTheme.ContrastLight);
-
 survey.applyTheme({
   themeName: "contrast",
   colorPalette: "light",
@@ -47,8 +46,6 @@ survey.applyTheme({
   backgroundImageAttachment: "scroll",
   backgroundImageFit: "cover",
   cssVariables: {
-    // "--sjs-font-size": "1.75em",
-
     "--sjs-corner-radius": "4px",
     "--sjs-base-unit": "8px",
     "--sjs-shadow-small":
@@ -86,77 +83,24 @@ survey.applyTheme({
     "--sjs-special-blue-forecolor": "rgba(255, 255, 255, 1)",
     "--sjs-special-yellow": "rgba(255, 152, 20, 1)",
     "--sjs-special-yellow-light": "rgba(255, 152, 20, 0.1)",
-    "--sjs-special-yellow-forecolor": "rgba(255, 255, 255, 1)",
-    "--sjs-article-font-xx-large-textDecoration": "none",
-    "--sjs-article-font-xx-large-fontWeight": "700",
-    "--sjs-article-font-xx-large-fontStyle": "normal",
-    "--sjs-article-font-xx-large-fontStretch": "normal",
-    "--sjs-article-font-xx-large-letterSpacing": "0",
-    "--sjs-article-font-xx-large-lineHeight": "64px",
-    "--sjs-article-font-xx-large-paragraphIndent": "0px",
-    "--sjs-article-font-xx-large-textCase": "none",
-    "--sjs-article-font-x-large-textDecoration": "none",
-    "--sjs-article-font-x-large-fontWeight": "700",
-    "--sjs-article-font-x-large-fontStyle": "normal",
-    "--sjs-article-font-x-large-fontStretch": "normal",
-    "--sjs-article-font-x-large-letterSpacing": "0",
-    "--sjs-article-font-x-large-lineHeight": "56px",
-    "--sjs-article-font-x-large-paragraphIndent": "0px",
-    "--sjs-article-font-x-large-textCase": "none",
-    "--sjs-article-font-large-textDecoration": "none",
-    "--sjs-article-font-large-fontWeight": "700",
-    "--sjs-article-font-large-fontStyle": "normal",
-    "--sjs-article-font-large-fontStretch": "normal",
-    "--sjs-article-font-large-letterSpacing": "0",
-    "--sjs-article-font-large-lineHeight": "40px",
-    "--sjs-article-font-large-paragraphIndent": "0px",
-    "--sjs-article-font-large-textCase": "none",
-    "--sjs-article-font-medium-textDecoration": "none",
-    "--sjs-article-font-medium-fontWeight": "700",
-    "--sjs-article-font-medium-fontStyle": "normal",
-    "--sjs-article-font-medium-fontStretch": "normal",
-    "--sjs-article-font-medium-letterSpacing": "0",
-    "--sjs-article-font-medium-lineHeight": "32px",
-    "--sjs-article-font-medium-paragraphIndent": "0px",
-    "--sjs-article-font-medium-textCase": "none",
-    "--sjs-article-font-default-textDecoration": "none",
-    "--sjs-article-font-default-fontWeight": "400",
-    "--sjs-article-font-default-fontStyle": "normal",
-    "--sjs-article-font-default-fontStretch": "normal",
-    "--sjs-article-font-default-letterSpacing": "0",
-    "--sjs-article-font-default-lineHeight": "28px",
-    "--sjs-article-font-default-paragraphIndent": "0px",
-    "--sjs-article-font-default-textCase": "none",
-    "--sjs-general-backcolor-dim": "#ffffff",
-    "--sjs-primary-backcolor": "rgba(0, 0, 0, 1)",
-    "--sjs-primary-backcolor-dark": "rgba(83, 83, 83, 1)",
-    "--sjs-primary-backcolor-light": "rgba(255, 216, 77, 1)",
-    "--sjs-primary-forecolor": "rgba(255, 255, 255, 1)",
-    "--sjs-primary-forecolor-light": "rgba(255, 255, 255, 0.25)",
-    "--sjs-special-red": "rgba(229, 10, 62, 1)",
-    "--sjs-special-red-light": "rgba(229, 10, 62, 0.1)",
+    "--sjs-special-yellow-forecolor": "rgba(255, 255, 255, 1)"
   },
   headerView: "basic",
 });
 
-// Manejar el evento onComplete de SurveyJS
-
-// Obtener la fecha y hora actual en el formato deseado
 const currentDate = new Date();
 const formattedDate = currentDate
   .toLocaleString("es-ES", { timeZone: "America/Argentina/Buenos_Aires" })
-  .replace(",", "") // eliminar la coma de separación de fecha y hora
-  .replace(/\//g, "-") // reemplazar barras con guiones
-  .replace(/\s+/g, "_") // reemplazar espacios con guiones bajos
-  .replace(/:/g, "-"); // reemplazar dos puntos con guiones
+  .replace(",", "")
+  .replace(/\//g, "-")
+  .replace(/\s+/g, "_")
+  .replace(/:/g, "-");
 
 survey.onComplete.add((sender, options) => {
-  // Usar comillas invertidas y la sintaxis de interpolación para formar el nombre del archivo
   const fileName = `ReporteInspeccion_${formattedDate}.pdf`;
   saveSurveyToPdf(fileName, survey);
 });
 
-// Agregar el botón de navegación para guardar como PDF
 survey.addNavigationItem({
   id: "deshabilit",
   title: "Save as PDF",
@@ -165,7 +109,71 @@ survey.addNavigationItem({
   },
 });
 
-// Renderizar la encuesta en el elemento con id "surveyContainer"
 survey.render("surveyContainer");
 
 $("#surveyElement").Survey({ model: survey });
+
+
+const SUPABASE_URL = "https://crudzqnpdfngqcamgabt.supabase.co";
+const SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNydWR6cW5wZGZuZ3FjYW1nYWJ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4ODIxMjMsImV4cCI6MjA2NjQ1ODEyM30.aQ5uqsW0_tOBANRcHcqzDYHxnwbKzqw9kesXFxOEaCc";
+
+function enviarADatabase(data) {
+  let rawFecha = data.fecha || data["Fecha de Inspección"];
+  let fechaISO = null;
+
+  if (rawFecha && typeof rawFecha === "string") {
+    let fechaNormalizada = rawFecha.replace(" ", "T");
+
+    if (/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}$/.test(fechaNormalizada)) {
+      fechaNormalizada += ":00";
+    }
+
+    const parsedFecha = Date.parse(fechaNormalizada);
+    if (!isNaN(parsedFecha)) {
+      fechaISO = new Date(parsedFecha).toISOString();
+    } else {
+      console.warn("No se pudo parsear la fecha:", rawFecha);
+    }
+  }
+
+  const payload = {
+    nroSolicitud: data.nroSolicitud,
+    referenciaExterna: data.referenciaExterna,
+    fecha: fechaISO, // ✅ ahora este es seguro
+    origen: data.origen,
+    motivo: data.motivo,
+    area: data.area,
+    observaciones: data.observaciones,
+    resultado: data.resultado,
+    inspectores: data.inspectores,
+    actas: data.actas,
+    jsonCompleto: data
+  };
+
+  fetch(`${SUPABASE_URL}/rest/v1/inspecciones`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": SUPABASE_API_KEY,
+      "Authorization": `Bearer ${SUPABASE_API_KEY}`,
+      "Prefer": "return=representation"
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Datos enviados a Supabase:", data);
+  })
+  .catch(error => {
+    console.error("Error al enviar a Supabase:", error);
+  });
+}
+
+
+
+if (typeof survey !== 'undefined') {
+  survey.onComplete.add(function (sender) {
+    const data = sender.data;
+    enviarADatabase(data);
+  });
+}
